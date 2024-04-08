@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import colors from "colors";
 import morgan from "morgan";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 // file imports
 import connectDB from "./config/db.js";
@@ -16,7 +17,8 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
+app.use(bodyParser.json())
+app.use(express.static('public'))
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev')); 
@@ -30,22 +32,17 @@ app.get('/api/v1/MCQs', (req, res) => {
     res.json(questions);
 });
 
-app.post('/api/v1/askMCQs', (req, res) => {
-    // Handle asking questions
-    // Assuming req.body contains the question to ask
-    const question = req.body.question;
-    const answer = askQuestion(question);
-    res.json({ answer });
-});
+
+
 
 app.post('/api/v1/checkMCQs', (req, res) => {
     // Handle checking answers
     // Assuming req.body contains the question and the user's answer
-    const question = req.body.question;
-    const userAnswer = req.body.answer;
-    const isCorrect = checkAnswer(question, userAnswer);
-    res.json({ isCorrect });
+    const userAnswers = req.body;
+    const score = calculateScore(userAnswers);
+    res.json({ message: `Your score is ${score}/${questions.length}`, isCorrect: score === questions.length });
 });
+
 
 app.get('/api/v1/StartQuiz', (req, res) => {
     startQuiz();

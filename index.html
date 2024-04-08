@@ -1,0 +1,182 @@
+<!-- quiz.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result, #completionMessage {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 10px;
+            }
+
+            button[type="submit"] {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Node.js Quiz</h1>
+    <form id="quizForm">
+        <p>1. What is Node.js?</p>
+        <input type="radio" name="question1" value="A front-end JavaScript framework"> A front-end JavaScript framework<br>
+        <input type="radio" name="question1" value="A back-end JavaScript runtime"> A back-end JavaScript runtime<br>
+        <input type="radio" name="question1" value="A database management system"> A database management system<br>
+        <input type="radio" name="question1" value="A web browser"> A web browser<br>
+
+        <!-- Question 2 -->
+        <p>2. What is a module in Node.js?</p>
+        <input type="radio" name="question2" value="A single JavaScript file"> A single JavaScript file<br>
+        <input type="radio" name="question2" value="A function that takes a callback"> A function that takes a callback<br>
+        <input type="radio" name="question2" value="A reusable piece of code organized in files"> A reusable piece of code organized in files<br>
+        <input type="radio" name="question2" value="A package manager for Node.js"> A package manager for Node.js<br>
+
+        <!-- Question 3 -->
+        <p>3. What is CommonJS?</p>
+        <input type="radio" name="question3" value="A JavaScript library"> A JavaScript library<br>
+        <input type="radio" name="question3" value="A module system for Node.js"> A module system for Node.js<br>
+        <input type="radio" name="question3" value="A package manager for Node.js"> A package manager for Node.js<br>
+        <input type="radio" name="question3" value="A Node.js event emitter"> A Node.js event emitter<br>
+
+        <!-- Question 4 -->
+        <p>4. What is the purpose of the 'require' function in Node.js?</p>
+        <input type="radio" name="question4" value="To define a new variable"> To define a new variable<br>
+        <input type="radio" name="question4" value="To include external modules"> To include external modules<br>
+        <input type="radio" name="question4" value="To create a new instance of a class"> To create a new instance of a class<br>
+        <input type="radio" name="question4" value="To declare a function"> To declare a function<br>
+
+        <!-- Question 5 -->
+        <p>5. What is a callback function in Node.js?</p>
+        <input type="radio" name="question5" value="A function that is called after a certain operation is completed"> A function that is called after a certain operation is completed<br>
+        <input type="radio" name="question5" value="A function used to handle HTTP requests"> A function used to handle HTTP requests<br>
+        <input type="radio" name="question5" value="A function that initializes a Node.js application"> A function that initializes a Node.js application<br>
+        <input type="radio" name="question5" value="A function that is called before an event occurs"> A function that is called before an event occurs<br>
+
+        <!-- Question 6 -->
+        <p>6. What is the event loop in Node.js?</p>
+        <input type="radio" name="question6" value="A loop that executes asynchronous tasks"> A loop that executes asynchronous tasks<br>
+        <input type="radio" name="question6" value="A loop that waits for user input"> A loop that waits for user input<br>
+        <input type="radio" name="question6" value="A loop that handles HTTP requests"> A loop that handles HTTP requests<br>
+        <input type="radio" name="question6" value="A loop that iterates through an array of events"> A loop that iterates through an array of events<br>
+
+        <!-- Question 7 -->
+        <p>7. What is the purpose of the 'exports' object in Node.js?</p>
+        <input type="radio" name="question7" value="To import modules"> To import modules<br>
+        <input type="radio" name="question7" value="To define global variables"> To define global variables<br>
+        <input type="radio" name="question7" value="To export functions or objects from a module"> To export functions or objects from a module<br>
+        <input type="radio" name="question7" value="To handle HTTP requests"> To handle HTTP requests<br>
+
+        <!-- Question 8 -->
+        <p>8. What is npm?</p>
+        <input type="radio" name="question8" value="Node Package Manager"> Node Package Manager<br>
+        <input type="radio" name="question8" value="Node Project Manager"> Node Project Manager<br>
+        <input type="radio" name="question8" value="Node Programming Module"> Node Programming Module<br>
+        <input type="radio" name="question8" value="Node Package Module"> Node Package Module<br>
+
+        <!-- Question 9 -->
+        <p>9. What is the purpose of package.json in a Node.js project?</p>
+        <input type="radio" name="question9" value="To store the project's source code"> To store the project's source code<br>
+        <input type="radio" name="question9" value="To define project dependencies and metadata"> To define project dependencies and metadata<br>
+        <input type="radio" name="question9" value="To manage HTTP requests"> To manage HTTP requests<br>
+        <input type="radio" name="question9" value="To create a database connection"> To create a database connection<br>
+
+        <!-- Question 10 -->
+        <p>10. Which method is used to handle errors in asynchronous code in Node.js?</p>
+        <input type="radio" name="question10" value="try-catch block"> try-catch block<br>
+        <input type="radio" name="question10" value="if-else statement"> if-else statement<br>
+        <input type="radio" name="question10" value="switch-case statement"> switch-case statement<br>
+        <input type="radio" name="question10" value="callback functions"> callback functions<br>
+
+        <!-- Question 11 -->
+        <p>11. What is a stream in Node.js?</p>
+        <input type="radio" name="question11" value="A continuous flow of data"> A continuous flow of data<br>
+        <input type="radio" name="question11" value="A type of module"> A type of module<br>
+        <input type="radio" name="question11" value="An event emitter"> An event emitter<br>
+        <input type="radio" name
+        <!-- Add more questions here -->
+
+        <button type="submit">Submit Answers</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+ document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch("/api/v1/checkMCQs", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML = data.message;
+
+                if (data.isCorrect) {
+                    document.getElementById("result").style.color = "green";
+                } else {
+                    document.getElementById("result").style.color = "red";
+                }
+
+                document.getElementById("completionMessage").innerText = "Thank you, quiz has completed.";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
