@@ -34,6 +34,8 @@ This is a simple quiz application built using Node.js for the backend and HTML/C
 4. **Open the Application**: Open your web browser and go to [http://localhost:4000](http://localhost:4000) to access the quiz application.
 
 5. **Take the Quiz**: Answer the multiple-choice questions and submit your answers to check correctness.
+6. ![Alt Text](file:///C:/Users/Arush%20Agarwal/Downloads/img1.png)
+   
 
 ## Technologies Used
 
